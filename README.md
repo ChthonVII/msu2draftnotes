@@ -129,19 +129,20 @@ extra_control bit 7		info_type << 2
 ```
 
 `which_track` controls whether the following are applied to trackA, B, C, or D:
-	- audio_track
-	- audio_volume
-	- control.play
-	- control.repeat
-	- control.bsnes_resume
-	- control.auto_swap
-	- extra_control.fade
-	- extra_control.fade_direction
-	- extra_control.fade_cancel
-	- fade_step
-	- fade_to_volume
-	- info_out (whether info_out displays for trackA, B, C, or D)
-When i/o mode is 0, which_track is assumed to be 0 (track A).
+- audio_track
+- audio_volume
+- control.play
+- control.repeat
+- control.bsnes_resume
+- control.auto_swap
+- extra_control.fade
+- extra_control.fade_direction
+- extra_control.fade_cancel
+- fade_step
+- fade_to_volume
+- info_out (whether info_out displays for trackA, B, C, or D)
+
+When i/o mode is 0, `which_track` is assumed to be 0 (track A).
 
 `fade` sets the fade flag for the track selected by which_track.
 
@@ -150,20 +151,18 @@ When i/o mode is 0, which_track is assumed to be 0 (track A).
 `fade_direction` sets whether the fade applied to the track selected by which_track is a fade-in (1) or a fade-out (0).
 
 info_type sets what kind of information to output to info_out (combined with which_track setting which track's information to use).
-	- 0 - current position in 32kHz samples
-	- 1 - track length in 32kHz samples
-	- 2 - track completion in 1/4294967295ths
-	- 3 - 2 values:
-		- track completion in 1/65535ths in $2004 and $2005
-		- fade completion in 1/65535ths in $2006 and $2007
-	- 4 - fade remaining in 32kHz samples
-	- 5 - unused
-	- 6 - unused
-	- 7 - unused
-	- 8 - unused
+- 0 - current position in 32kHz samples
+- 1 - track length in 32kHz samples
+- 2 - track completion in 1/4294967295ths
+- 3 - 2 values:
+     - track completion in 1/65535ths in $2004 and $2005
+     - fade completion in 1/65535ths in $2006 and $2007
+- 4 - fade remaining in 32kHz samples
+- 5 - unused
+- 6 - unused
+- 7 - unused
+- 8 - unused
 
 Not completely sure 32kHz samples are the best unit here.  
 Might want to use milliseconds or master clock ticks instead?  
 (44.1kHz samples doesn't seem very useful since nothing in the original rom code will readily convert to it. Better to do that conversion on the MSU-1 side.)
-
-```
