@@ -97,9 +97,9 @@ If `swap_tracks == 1`, then swap the handles of the current trackA and the track
 ```
 i/o mode 1 write (NEW)
 $2000	extra_control
-$2001	fade_step << 8
-$2002	fade_step << 16
-$2003	fade_to_volume << 24
+$2001	fade_step << 0
+$2002	fade_step << 8
+$2003	fade_to_volume
 $2004	audio_track << 0
 $2005	audio_track << 8
 $2006	audio_volume
